@@ -6,8 +6,19 @@
     background-color: #DDD;
     overflow-y: scroll;
 }
+.top {
+    display: flex;
+    margin-bottom: 2px;
+}
+.image-upload > input {
+    display: none;
+}
+.image-upload > label {
+    cursor: pointer;
+    padding: 0px 5px;
+}
 #name {
-    width: 100%;
+    width: 80%;
     padding-bottom: 1px;
 }
 #input {
@@ -27,6 +38,11 @@
 .msg p {
     font-family: '微軟正黑體';
     margin-left: 2em;
+}
+.msg img {
+    max-width: 60%;
+    margin-left: 2em;
+    display: block;
 }
 .send {
     display: flex;

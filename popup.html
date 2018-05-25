@@ -9,9 +9,23 @@
   </head>
   <body>
     <!-- <button>Login with Google</button> -->
-    <input type="text" name="name" id="name" placeholder="what's your name?" >
+    <div class="top">
+      <input type="text" name="name" id="name" placeholder="what's your name?" >
+      <div class="image-upload">
+        <label for="upload" title="send file">
+          <img src="images/paper-clip.png" alt="file icon">
+        </label>
+        <input type="file" name="upload" id="upload" accept="*">      
+      </div>
+    </div>
+    
+    
     <div class="content" id="content">
       <p id="loading">Loading...</p>
+    </div>
+    <div class="prograss">
+      <div id="prograssBar"></div>
+      <span id="prograssNumber"></span>
     </div>
     <div class="send">
       <textarea type="text" name="input" id="input" rows=3 cols="20"></textarea>
