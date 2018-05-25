@@ -46,8 +46,8 @@ sendButton.addEventListener('click', function(e){
   // console.log('name: ', name);
   // console.log('inputMessage: ', inputMessage);
   if(name.length === 0 && inputMessage.length !== 0){
-    nameInput.focus();
     alert('who are you??');
+    nameInput.focus();
     e.preventDefault();
     return false;
   }
