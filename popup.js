@@ -45,7 +45,6 @@ let progressNumber = document.getElementById('prograssNumber');
 
 
 chrome.storage.sync.get(['name'], function(result) {
-  // console.log('Value currently is ' + result.name);
   if(Boolean(result.name))
     nameInput.value = result.name;
 });
@@ -53,9 +52,6 @@ chrome.storage.sync.get(['name'], function(result) {
 sendButton.addEventListener('click', function(e){
   let name = nameInput.value;
   let inputMessage = input.value;
-  // console.log('article_id: ', article_id);
-  // console.log('name: ', name);
-  // console.log('inputMessage: ', inputMessage);
   if(name.length === 0 && inputMessage.length !== 0){
     alert('who are you??');
     nameInput.focus();
@@ -100,7 +96,7 @@ uploadInput.addEventListener('change', function (e) {
   }
   const filename = Date.now() + `_${file.name}`;
   const metadata = {
-    contentType: 'image/*'
+    contentType: 'file/*'
   };
   const prograssBar = document.getElementById('prograssBar');
   const uploadTask = storageRef.child(filename).put(file, metadata);
@@ -108,6 +104,7 @@ uploadInput.addEventListener('change', function (e) {
   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, 
     // 上傳進度
     function (snap) {
+      progressNumber.style.display = 'inherit';
       let progress = Math.floor((snap.bytesTransferred / snap.totalBytes) * 100);
       if (progress < 100) {
         progressNumber.innerText = `uploading... ${progress}%`;
@@ -129,7 +126,7 @@ uploadInput.addEventListener('change', function (e) {
           time: getTime()
         });
       });
-      progressNumber.classList.toggle('hide');
+      progressNumber.style.display = 'none';
     }
   );
 });
